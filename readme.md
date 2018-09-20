@@ -5,7 +5,7 @@
 
 Clone o repositório:
 
-```git clone ```
+```git clone git@github.com:marciorc/DotNetCore2_1.Selenium.Nunit.git```
 
 ## Configuração
 
