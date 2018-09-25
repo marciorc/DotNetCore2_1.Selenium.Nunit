@@ -19,7 +19,6 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
             BrowserOptions.SelectBrowser(Browser.Chrome);
             PropertiesCollection.Driver.Manage().Cookies.DeleteAllCookies();
             PropertiesCollection.Driver.Navigate().GoToUrl(url);
-            //PropertiesCollection.Drive
             PropertiesCollection.DefaultTimeout = timeout;
             PropertiesCollection.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout);
             PropertiesCollection.Driver.SwitchTo().Window(PropertiesCollection.Driver.WindowHandles.Last());
