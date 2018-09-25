@@ -1,6 +1,11 @@
 ﻿DotNetCore 2.1 + Selenium + Nunit
 --------------------------------------------------
 
+## Pré-requisitos
+
+SDK do .Net Core 2.1 instalado
+* https://www.microsoft.com/net/download/dotnet-core/2.1
+
 ## Instalacão
 
 Clone o repositório:
