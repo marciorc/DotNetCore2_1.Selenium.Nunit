@@ -6,5 +6,6 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
     {
         public static IWebDriver Driver { get; set; }
         public static int DefaultTimeout { get; set; }
+        public static int PollingInterval { get; set; }
     }
 }
