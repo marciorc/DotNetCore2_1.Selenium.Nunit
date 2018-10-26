@@ -15,8 +15,6 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
         
         public static void SelectBrowser(Browser browser)
         {
-            string screenPath = ConfigurationManager.AppSetting["Selenium:PathScreenshot"];
-
             string firefoxDriver = ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"];
             string chromeDriver = ConfigurationManager.AppSetting["Selenium:PathDriverChrome"];
             string ieDriver = ConfigurationManager.AppSetting["Selenium:PathDriverIE"];

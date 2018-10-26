@@ -4,7 +4,13 @@
 ## Pré-requisitos
 
 SDK do .Net Core 2.1 instalado
+
+### Windows
 * https://www.microsoft.com/net/download/dotnet-core/2.1
+
+### Linux
+Siga os passos informados de acordo com o Sistema Operacional e versão disponíveis.
+* https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
 
 ## Instalacão
 
