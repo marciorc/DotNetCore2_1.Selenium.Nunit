@@ -10,8 +10,10 @@ namespace DotNetCore2_1.Selenium.Nunit.Utils
     {
         public static void AjaxFinished()
         {
-            WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout));
-            wait.PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval);
+            WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout))
+            {
+                PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval)
+            };
             IJavaScriptExecutor jsScript = PropertiesCollection.Driver as IJavaScriptExecutor;
             wait.Until(driver =>
             {
@@ -25,8 +27,10 @@ namespace DotNetCore2_1.Selenium.Nunit.Utils
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout));
-                wait.PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval);
+                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout))
+                {
+                    PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval)
+                };
                 return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(elementLocator));
             }
             catch (NoSuchElementException)
@@ -40,8 +44,10 @@ namespace DotNetCore2_1.Selenium.Nunit.Utils
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout));
-                wait.PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval);
+                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout))
+                {
+                    PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval)
+                };
                 return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.InvisibilityOfElementLocated(elementLocator));
             }
             catch (NoSuchElementException)
@@ -61,8 +67,10 @@ namespace DotNetCore2_1.Selenium.Nunit.Utils
         {
             try
             {
-                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout));
-                wait.PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval);
+                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout))
+                {
+                    PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval)
+                };
                 return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.AlertIsPresent());
             }
             catch (NoSuchElementException)
@@ -79,8 +87,10 @@ namespace DotNetCore2_1.Selenium.Nunit.Utils
         {
             if (PropertiesCollection.DefaultTimeout > 0)
             {
-                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout));
-                wait.PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval);
+                WebDriverWait wait = new WebDriverWait(PropertiesCollection.Driver, TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout))
+                {
+                    PollingInterval = TimeSpan.FromMilliseconds(PropertiesCollection.PollingInterval)
+                };
                 return wait.Until(drv => drv.FindElement(by));
             }
             return PropertiesCollection.Driver.FindElement(by);

@@ -1,4 +1,4 @@
-﻿using DotNetCore2_1.Selenium.Nunit.EntityAndFactorys;
+﻿using DotNetCore2_1.Selenium.Nunit.EntityAndFactories;
 using DotNetCore2_1.Selenium.Nunit.PageObjects;
 using DotNetCore2_1.Selenium.Nunit.Utils;
 using DotNetCore2_1.Selenium.Nunit.WebDriverSetup;
@@ -28,7 +28,7 @@ namespace DotNetCore2_1.Selenium.Nunit.TestCases
             SearchResultPage resultPage = new SearchResultPage();
             WaitUntil.ElementVisible(By.Id(resultPage.Container.GetAttribute("id")));
 
-            Assert.AreEqual("Repositories", resultPage.Repositories.Text);
+            Assert.AreEqual("Repositories\r\n1", resultPage.Repositories.Text);
         }
     }
 }

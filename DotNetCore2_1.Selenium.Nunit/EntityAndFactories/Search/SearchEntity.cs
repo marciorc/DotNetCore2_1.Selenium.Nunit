@@ -1,4 +1,4 @@
-﻿namespace DotNetCore2_1.Selenium.Nunit.EntityAndFactorys
+﻿namespace DotNetCore2_1.Selenium.Nunit.EntityAndFactories
 {
     public class SearchEntity
     {
