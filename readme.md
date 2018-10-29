@@ -19,8 +19,6 @@ Clone o repositório:
 ```git clone git@github.com:marciorc/DotNetCore2_1.Selenium.Nunit.git```
 
 ## Configuração
-
-Extraia o arquivo **`Selenium.rar`** e mova para a pasta **`C:/`**. Nele contém todos os webdrivers necessários parar execução dos testes.
  
 Acesse o arquivo **`appsettings.json`** para setar as configurações do projeto
 

@@ -7,6 +7,8 @@ using OpenQA.Selenium.Support.Events;
 using OpenQA.Selenium.Support.Extensions;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
 {
@@ -15,17 +17,17 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
         
         public static void SelectBrowser(Browser browser)
         {
-            string firefoxDriver = ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"];
+            var firefoxDriver = ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"];
             string chromeDriver = ConfigurationManager.AppSetting["Selenium:PathDriverChrome"];
             string ieDriver = ConfigurationManager.AppSetting["Selenium:PathDriverIE"];
             string edgeDriver = ConfigurationManager.AppSetting["Selenium:PathDriverEdge"];
 
-            void TakeScreenshotOnException(object sender, WebDriverExceptionEventArgs e)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                string timestamp = DateTime.Now.ToString("dd-MM-yyyy-hh_mm_ss");
-                var pathString = System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Screenshots");
-                PropertiesCollection.Driver.TakeScreenshot().SaveAsFile(Directory.GetCurrentDirectory() + "\\Screenshots" +
-                    "\\Exception-" + timestamp + ".png", OpenQA.Selenium.ScreenshotImageFormat.Png);
+                // firefoxDriver = firefoxDriver.Split(Path.AltDirectorySeparatorChar);
+                // chromeDriver
+                // ieDriver
+                // edgeDriver
             }
 
             switch (browser)
@@ -56,6 +58,14 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
                     firingDriver.ExceptionThrown += TakeScreenshotOnException;
                     PropertiesCollection.Driver = firingDriver;
                     break;
+            }
+
+            void TakeScreenshotOnException(object sender, WebDriverExceptionEventArgs e)
+            {
+                string timestamp = DateTime.Now.ToString("dd-MM-yyyy-hh_mm_ss");
+                var pathString = System.IO.Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\Screenshots");
+                PropertiesCollection.Driver.TakeScreenshot().SaveAsFile(Directory.GetCurrentDirectory() + "\\Screenshots" +
+                    "\\Exception-" + timestamp + ".png", OpenQA.Selenium.ScreenshotImageFormat.Png);
             }
         }
     }
