@@ -21,7 +21,7 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
         public void Initialize()
         {
             // Seta o driver escolhido
-            BrowserOptions.SelectBrowser(Browser.Chrome);
+            BrowserOptions.SelectBrowser(Browser.Firefox);
             PropertiesCollection.Driver.Manage().Cookies.DeleteAllCookies();
 
             // Seta para o driver principal as propriedades configuradas no appsettings.json

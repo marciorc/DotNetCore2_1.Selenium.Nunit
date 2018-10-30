@@ -13,28 +13,29 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
 {
     public class BrowserOptions
     {
-        
         public static void SelectBrowser(Browser browser)
         {
-            var mainPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
+            string chromeDriver, firefoxDriver, edgeDriver, ieDriver, screenshotPath;
 
-            string chromeDriver = mainPath + ConfigurationManager.AppSetting["Selenium:PathDriverChrome"];
-            string firefoxDriver = mainPath + Path.GetFullPath(ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"]);
-            string edgeDriver = mainPath + ConfigurationManager.AppSetting["Selenium:PathDriverEdge"];
-            string ieDriver = mainPath + ConfigurationManager.AppSetting["Selenium:PathDriverIE"];
-
-            string screenshotPath = mainPath + ConfigurationManager.AppSetting["Selenium:PathToScreenshots"];
-
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                //string[] chromeDriverPath = chromeDriver.Split(Path.AltDirectorySeparatorChar);
-                //chromeDriver = chromeDriverPath[0];
-                //string[] edgeDriverPath = edgeDriver.Split(Path.AltDirectorySeparatorChar);
-                //edgeDriver = edgeDriverPath[0];
-                //string[] firefoxDriverPath = firefoxDriver.Split(Path.AltDirectorySeparatorChar);
-                //firefoxDriver = firefoxDriverPath[0];
-                //string[] ieDriverPath = ieDriver.Split(Path.AltDirectorySeparatorChar);
-                //ieDriver = ieDriverPath[0];
+                var mainPathWindows = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
+
+                chromeDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverChrome"];
+                edgeDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverEdge"];
+                firefoxDriver = mainPathWindows + Path.GetFullPath(ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"]);
+                ieDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverIE"];
+
+                screenshotPath = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathToScreenshots"];
+            } else {
+                var mainPathLinux = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "../../../"));
+
+                chromeDriver = mainPathLinux + ConfigurationManager.AppSetting["Selenium:PathDriverChrome"].Replace("\\", "/");
+                edgeDriver = mainPathLinux + ConfigurationManager.AppSetting["Selenium:PathDriverEdge"].Replace("\\", "/");
+                firefoxDriver = mainPathLinux + ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"].Replace("\\", "/");
+                ieDriver = mainPathLinux + ConfigurationManager.AppSetting["Selenium:PathDriverIE"].Replace("\\", "/");
+
+                screenshotPath = mainPathLinux + ConfigurationManager.AppSetting["Selenium:PathToScreenshots"].Replace("\\", "/");
             }
 
             switch (browser)
