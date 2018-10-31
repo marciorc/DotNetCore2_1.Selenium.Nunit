@@ -1,7 +1,6 @@
 ﻿using DotNetCore2_1.Selenium.Nunit.GetSettings;
 using NUnit.Framework;
 using System;
-using System.Linq;
 
 namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
 {
@@ -35,7 +34,7 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
             PropertiesCollection.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(PropertiesCollection.DefaultTimeout);
         }
 
-        [TearDown]
+        [OneTimeTearDown]
         public static void CleanUp()
         {
             PropertiesCollection.Driver.Quit();

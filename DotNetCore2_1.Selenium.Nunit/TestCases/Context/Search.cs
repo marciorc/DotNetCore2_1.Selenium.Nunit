@@ -28,7 +28,7 @@ namespace DotNetCore2_1.Selenium.Nunit.TestCases
             SearchResultPage resultPage = new SearchResultPage();
             WaitUntil.ElementVisible(By.Id(resultPage.Container.GetAttribute("id")));
 
-            Assert.AreEqual("Repositories\n1", resultPage.Repositories.Text);
+            Assert.IsTrue(resultPage.Repositories.Text.Contains("Repositories"));
         }
     }
 }

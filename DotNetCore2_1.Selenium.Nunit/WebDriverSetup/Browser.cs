@@ -23,7 +23,7 @@ namespace DotNetCore2_1.Selenium.Nunit.WebDriverSetup
 
                 chromeDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverChrome"];
                 edgeDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverEdge"];
-                firefoxDriver = mainPathWindows + Path.GetFullPath(ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"]);
+                firefoxDriver = mainPathWindows + (ConfigurationManager.AppSetting["Selenium:PathDriverFirefox"]);
                 ieDriver = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathDriverIE"];
 
                 screenshotPath = mainPathWindows + ConfigurationManager.AppSetting["Selenium:PathToScreenshots"];
