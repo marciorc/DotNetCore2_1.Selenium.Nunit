@@ -1,4 +1,4 @@
-﻿using DotNetCore2_1.Selenium.Nunit.EntityAndFactories;
+﻿using DotNetCore2_1.Selenium.Nunit.EEntitiesAndFactories
 using DotNetCore2_1.Selenium.Nunit.PageObjects;
 using DotNetCore2_1.Selenium.Nunit.Utils;
 using DotNetCore2_1.Selenium.Nunit.WebDriverSetup;

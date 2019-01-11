@@ -35,3 +35,6 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Others Paths
+DotNetCore2_1.Selenium.Nunit/[Ss]creenshots/*.png
